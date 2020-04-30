@@ -4,9 +4,9 @@
 using namespace std;
 
 int write(string name, string category, string description){
-	ofstream file;
-	file.open("test");
-	file << name + ";" + category + ";"  + description + "\n";
+	ofstream file("test", ios_base::app | std::ios_base::out);
+	//file.open("test");
+	file << name + ";" + category + ";"  + description << endl;
 	file.close();
 	return 0;
 }
