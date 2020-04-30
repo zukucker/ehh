@@ -5,10 +5,13 @@ using namespace std;
 
 int write(string name, string category, string description){
 	ofstream file("test", ios_base::app | std::ios_base::out);
-	//file.open("test");
 	file << name + ";" + category + ";"  + description << endl;
 	file.close();
 	return 0;
+}
+
+string search(string searchterm){
+	return searchterm;
 }
 
 string addArticle(){
@@ -22,12 +25,13 @@ string addArticle(){
 		cout << "Bitte Beschreibung eingeben" << endl;
 		cin >> description;
 	write(name, category, description);
-	return name + ";" +  category + ";" + description;
+	return "Erfolgreich gespeichert";
 }
 
 int main() {
 	 	int eingabe;	
 		string test;
+		string searchterm;
 		cout << "===================="<<endl;		
 		cout << "Was möchtest du tun?"<<endl;
 		cout << "===================="<<endl;		
@@ -41,7 +45,9 @@ int main() {
 		
 		switch(eingabe){
 				case 1:
-						cout << "Works" << endl;
+						cout << "Suchterm eingeben" <<endl;
+						cin >> searchterm;
+						cout << search(searchterm) << endl;
 						break;
 				case 2:
 						cout << addArticle() << endl;
