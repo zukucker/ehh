@@ -15,19 +15,15 @@ string search(string searchterm){
 	unsigned int currentLine = 0;
 	string line;
 	while(getline(file, line)){
+					//cout << line << endl;
 					currentLine++;
 					if(line.find(searchterm, 0) != string::npos){
-									
-									//TODO:
-									//found string, now need to parse.
-									//print out name, categorie and description
-									
-									
 									system("clear");
-									return line;
+									cout << line << endl;
+	return line;
 					}
 	}
-	return 0;
+	//system("clear");
 }
 
 string addArticle(){
