@@ -22,12 +22,11 @@ string search(string searchterm){
 									//found string, now need to parse.
 									//print out name, categorie and description
 									
-									
 									system("clear");
 									return line;
 					}
 	}
-	return 0;
+	return "Es konnte nichts gefunden werden, sorry!";
 }
 
 string addArticle(){
