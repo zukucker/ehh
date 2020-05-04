@@ -5,14 +5,14 @@
 using namespace std;
 
 int write(string name, string category, string description){
-	ofstream file("test", ios_base::app | std::ios_base::out);
+	ofstream file("/home/alexander/.ehhfile", ios_base::app | std::ios_base::out);
 	file << name + ";" + category + ";"  + description << endl;
 	file.close();
 	return 0;
 }
 
 string search(string searchterm){
-	ifstream file("test", ios_base::app | std::ios_base::out);
+	ifstream file("/home/alexander/.ehhfile", ios_base::app | std::ios_base::out);
 	unsigned int currentLine = 0;
 	string line;
 	while(getline(file, line)){
