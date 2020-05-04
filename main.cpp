@@ -19,11 +19,10 @@ string search(string searchterm){
 					currentLine++;
 					if(line.find(searchterm, 0) != string::npos){
 									
-									//TODO:
-									//found string, now need to parse.
-									//print out name, categorie and description
-									
 									system("clear");
+									cout << "==========================" << endl;
+									cout << "Folgendes wurde gefunden: " << endl;
+									cout << "==========================" << endl;
 									return line;
 					}
 	}
