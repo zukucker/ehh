@@ -43,6 +43,35 @@ string addArticle(){
 	return "Erfolgreich gespeichert";
 }
 
+int deleteArticle(string searchterm){
+	ifstream file("/home/alexander/.ehhfile", ios_base::app | std::ios_base::out);
+	unsigned int currentLine = 0;
+	string line;
+	string yesorno;
+	while(getline(file, line)){
+					currentLine++;
+					if(line.find(searchterm, 0) != string::npos){
+									
+									system("clear");
+									cout << "==========================" << endl;
+									cout << "Folgendes wurde gefunden: " << endl;
+									cout << line << endl;
+									cout << "Möchten Sie wirklich löschen?" << endl;
+									cout << "==========================" << endl;
+									cin >> yesorno;
+									if(yesorno == "y"){
+											// TODO: fix for all the items and not only the single one needed
+											// but working this way fine
+											ofstream file("/home/alexander/.ehhfile", ios_base::app | std::ios_base::out);
+											line.replace(line.find(searchterm),searchterm.length(),"");
+											file << line << endl;
+											cout << "Gelöscht" << endl;
+									}
+					}
+	}
+	return 0;
+}
+
 int main() {
 	 	int eingabe;	
 		string test;
@@ -68,7 +97,8 @@ int main() {
 						cout << addArticle() << endl;
 						break;
 				case 3:
-						cout << "Works" << endl;
+						cin >> searchterm;
+						deleteArticle(searchterm);
 						break;
 				default:
 						return 0;
